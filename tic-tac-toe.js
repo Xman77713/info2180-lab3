@@ -1,6 +1,7 @@
-let load = function() {
-	let currentGameState = ["","","","","","","","",""];
-	let turnCounter = 0;
+let currentGameState = ["","","","","","","","",""];
+let turnCounter = 0;
+
+function load() {
 	
 	function clicker(clicky, boxIndex) {
 		if (turnCounter % 2 == 0 && clicky.innerHTML == "") {
@@ -66,6 +67,10 @@ let load = function() {
 		outy.classList.remove("hover");
 	}
 	
+	function reloader() {
+		location.reload();
+	}
+	
 	let divList = document.getElementById("board").getElementsByTagName("div");
 	console.log(divList);
 	
@@ -77,7 +82,7 @@ let load = function() {
 		each.onclick = function() {clicker(each, i)};
 	}
 	
-	
+	document.getElementsByClassName("btn")[0].onclick = function() {reloader()};
 }
 
 window.addEventListener("load", load);
